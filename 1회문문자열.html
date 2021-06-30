@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    //내 풀이: 답은 나오지만 2배 걸린다. 
+    //answer ="YES"를 정해놓고 시작하면 return을 하나만 해도 된다 
+    //변경할 때만 사용하면 된다
+        function solution(s){
+            let s1 = s.toUpperCase(), answer="", n=s.length;
+            for(let i=0;i<n;i++){ //반복문이 실행시간을 결정한다. n/2만 해도 됨!
+            if(s1[i] === s1[n-1-i])answer = "YES";
+            else answer = "NO";
+        }  return answer;      
+        }
+//쌤 풀이
+        function solution(s){
+                let answer="YES";
+                s=s.toLowerCase();
+                let len=s.length;
+                for(let i=0; i<Math.floor(len/2); i++){
+                    if(s[i]!=s[len-i-1]) return "NO";
+                }
+                return answer;
+            }
+        
+
+            
+
+        console.log(solution("gooG"))
+
+    </script> 
+    
+</body>
+</html>
