@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //내 풀이
+        function solution(s){
+            let answer =""
+            s = s.toLowerCase().replace(/[a-z]/g,"");
+            if (s[0]==0) { //type은 문자열로 0과 다르므로 꼭 ===이 아닌 ==로 하기
+                for(let i=1;i<s.length;i++)
+                    answer+=s[i];
+                }else{
+                for(let i=0;i<s.length;i++)
+                answer+=s[i]; 
+                }return answer;
+            }       
+
+            function solution(s){ 
+                let answer="";
+                for(let x of s)
+                    if(!isNaN(x))answer+=x;
+                    return answer;
+            }
+
+        //쌤 풀이
+        //문자형 숫자만 뽑아내는 것(int가 아니라 str)
+        //isNaN(): 괄호 안이 숫자 맞으면 false, 아니면 true 그러므로 if문에 쓰기 위해 !를 사용해서 반대로 사용
+
+        function solution(str){
+                let answer="";
+                for(let x of str){
+                    if(!isNaN(x)) answer+=x;
+                    //isNaN() : is not a number - 숫자 아니면 true, 맞으면 false 
+                }  
+                return parseInt(answer); 
+                //parseInt를 통해 앞에 0이 있으면 날아간다
+            }
+
+        let str="g0en2T0s8eSoft";
+        console.log(solution(str));
+
+    </script>
+    
+</body>
+</html>
