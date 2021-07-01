@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    //#1.
+    function solution(s){ //s already declared 그러므로 let s로 할 필요 없음
+        s = s.toUpperCase(), answer="YES"; 
+        let len = s.length;
+        for(let i=0;i<Math.floor(len/2);i++){ 
+            if(s[i]!==s[s.length-1-i])answer="NO";
+        }return answer;
+    }
+
+    let str ="gooG";
+    console.log(solution(str));
+
+    //#2.
+    function solution(s){
+        let answer = "YES";
+        s = s.toLowerCase();
+        s = s.replace(/[^a-z]/g,"")
+        for(i=0;i<Math.floor(s.length/2);i++){ 
+            if(s[i]!==s[s.length-i-1])answer="NO";
+            //다른 방법: if(s.split().reverse().join()!=s)
+        }return answer;
+    }
+
+    let str1="found7, time: study; Yduts; emit, 7Dnuof"; 
+    console.log(solution(str1));
+
+    //#3. 
+    function solution(s){
+        let answer="";
+        for(let x of s){ 
+             if(!isNaN(x))answer+=x;
+        }answer = parseInt(answer);
+        return answer;
+    }
+   
+    let str2="g0en2T0s8eSoft";
+    console.log(solution(str2));
+
+    //#4. 
+    function solution1(s,t){ 
+        //첫 e와의 거리는 왼에서 보든 오에서 보든 같다 
+        let p = 1000, answer=[];
+        for(let x of s){
+            if(x === t){
+                p=0, 
+                answer.push(p);
+            }
+            else {
+                p++; 
+                answer.push(p);
+            }
+        }
+        p=1000;
+        for(let i=s.length-1;i>=0;i--){ 
+            if(s[i]===t)p=0;
+            else {
+                p++;
+                answer[i] = Math.min(answer[i], p)
+            }
+        }
+        return answer;
+        
+    }
+    
+    let str4="teachermode";
+    console.log(solution1(str4, 'e'));
+
+    //#5.
+    function solution(s){ 
+        let answer="", cnt=1;
+        for(let i=0;i<s.length;i++){
+        if(s[i]===s[i+1])cnt++;
+        else{
+            answer+=s[i]; 
+            //같으면 cnt만 계속 증가하다가 달라질 때 answer에 s[i]를 추가한다
+            //추가할 때 숫자를 string으로 만들어서 추가한다
+            if (cnt>1)answer+=String(cnt);
+            cnt=1;
+        }
+    }return answer;
+}
+
+    let str5="KKHSSSSSSSE"; 
+    console.log(solution(str5));
+    </script> 
+
+    
+</body>
+</html>
