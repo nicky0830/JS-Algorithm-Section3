@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    //내 풀이: fail!
+    function solution(s){ 
+        let answer ="",cnt=1, total=""; 
+        for(let x of s){ 
+        if(x!=answer){
+            if(cnt!=1){
+            total+=cnt;}
+            total+=x; 
+            cnt=1;}
+        else while(x==answer){
+           cnt++;
+           answer=x;
+        }
+    }return total;
+}
+
+//쌤 풀이 
+function solution(s){
+    let answer="";
+    let cnt=1;
+    s=s+" ";
+    for(let i=0; i<s.length-1; i++){ //i+1까지 가니까 s.length-1
+        if(s[i]===s[i+1]) cnt++; //앞뒤 같으면 
+        else{
+            answer+=s[i]; //다르면 앞에 s[i]더하고 
+            if(cnt>1) answer+=String(cnt); //cnt가 1이 아니면 string으로 바꿔서 합
+            cnt=1;//다음을 위해 다시 1로 초기화
+            }
+            }
+                return answer;
+            }
+    
+    function solution(s){
+        let answer=""; 
+        let cnt=1; 
+        s = s+" "; //왜?
+        for(let i=0; i<s.length-1;i++){ 
+            if(s[i]===s[i+1])cnt++; //아니면 개수만
+            else{ 
+                answer+=s[i]; //앞과 뒤가 달라야 합
+                if(cnt>1) answer+=String(cnt); //개수를 더한다
+                cnt=1;
+            }
+            }
+                return answer;
+    }       
+    
+        let str="KKHSSSSSSSE"; 
+        console.log(solution(str));
+    </script> 
+</body>
+</html>
